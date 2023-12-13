@@ -47,7 +47,7 @@
             </v-scroll-x-transition>
           </v-row>
 
-          <v-row class="w-100 mt-6 mb-1">
+          <v-row class="w-100 mt-6 mb-1 pl-4">
             <v-btn variant="outlined" size="small" @click="testConnectivity" :loading="testInProgress" :disabled="!formValid">
               Test connection
             </v-btn>
@@ -147,7 +147,7 @@ async function testConnectivity(){
     [AuthorizationMethods.noAuth]: null,
     [AuthorizationMethods.basicAuth]: {
       username: newConnectionForm.value.username as string,
-      password: newConnectionForm.value.password as string
+      password: newConnectionForm.value.password as string,
     }
   }
 
@@ -182,10 +182,12 @@ async function saveConfig(){
     namespace: newConnectionForm.value.namespace,
     topic:  newConnectionForm.value.topic,
     name: newConnectionForm.value.name,
-    auth_method: newConnectionForm.value.auth
+    auth_method: newConnectionForm.value.auth,
+    auth_creds: null
   }
 
   if(newConnectionForm.value.auth == AuthorizationMethods.basicAuth){
+    if (!newConnectionForm.value.username || !newConnectionForm.value.password) return
     config["auth_creds"] = {
       "username": newConnectionForm.value.username,
       "password": newConnectionForm.value.password,

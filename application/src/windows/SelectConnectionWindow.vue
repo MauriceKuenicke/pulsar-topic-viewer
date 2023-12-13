@@ -52,7 +52,7 @@
         </v-col>
         <v-col>
           <div class="w-75 h-100 d-flex flex-column justify-center">
-              <v-btn class="mb-2" @click="connectToTopicBroker">Connect</v-btn>
+              <v-btn class="mb-2" @click="connectToTopicBroker" :loading="connectionInProgress">Connect</v-btn>
               <v-btn class="mb-2" :disabled="true">Edit</v-btn>
               <v-btn class="mb-2" @click="deleteLocalConfiguration">Delete</v-btn>
           </div>
@@ -67,6 +67,13 @@
           </v-btn>
         </template>
       </v-snackbar>
+      <v-snackbar v-model="showConnectionErrorSnackbar" :timeout="3000" color="error" transition="scroll-x-transition">
+        Can not connect using the selected connection.
+        <template v-slot:actions>
+          <v-btn icon="mdi-close" @click="showConnectionErrorSnackbar=false" size="x-small">
+          </v-btn>
+        </template>
+      </v-snackbar>
     </div>
   </div>
 </template>
@@ -76,13 +83,16 @@ import CreateConnectionDialog from "./CreateConnectionDialog.vue";
 import { invoke } from "@tauri-apps/api/tauri";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-import {IStoredConfig} from "../types"
+import {AuthorizationMethods, IAuthorizationData, IStoredConfig} from "../types"
 import { appWindow } from "@tauri-apps/api/window";
+import API, {IGetTopicStatsParameter} from "../api"
 
 const router = useRouter()
 const availableConfigurations = ref<IStoredConfig[]>([])
 const selectedConfiguration = ref<IStoredConfig>()
 const showCopyToClipBoardSnackbar = ref<boolean>(false)
+const showConnectionErrorSnackbar = ref<boolean>(false)
+const connectionInProgress = ref<boolean>(false)
 
 async function fetchLocalConfigurations() {
   availableConfigurations.value = await invoke("read_available_connections");
@@ -110,8 +120,35 @@ function generateListEntrySubtitleString(configuration: IStoredConfig): string {
 }
 
 function connectToTopicBroker(){
-  router.push({ name: "TopicDashboard" })
-  appWindow.toggleMaximize()
+  if (!selectedConfiguration.value) return
+  connectionInProgress.value = true
+
+  const connectionParams: IGetTopicStatsParameter = {
+    url: selectedConfiguration.value.url, // http://localhost:8080
+    tenant: selectedConfiguration.value.tenant, // public
+    namespace: selectedConfiguration.value.namespace,  // default
+    topic:  selectedConfiguration.value.topic  // my-topic-test-2
+  }
+
+  const authData: IAuthorizationData = {
+    [AuthorizationMethods.noAuth]: null,
+    [AuthorizationMethods.basicAuth]: {
+      username: selectedConfiguration.value.auth_creds?.username as string,
+      password: selectedConfiguration.value.auth_creds?.password as string
+    }
+  }
+
+  API.getStatsForTopic(connectionParams, authData, selectedConfiguration.value.auth_method).then((response) => {
+    if(response.status !== 200){
+      showConnectionErrorSnackbar.value = true
+    }
+    router.push({ name: "TopicDashboard" })
+    connectionInProgress.value = false
+    appWindow.toggleMaximize()
+  }).catch(() => {
+    connectionInProgress.value = false
+    showConnectionErrorSnackbar.value = true
+  })
 }
 </script>
 

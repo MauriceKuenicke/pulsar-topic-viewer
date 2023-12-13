@@ -20,5 +20,5 @@ export interface IStoredConfig {
     namespace: string
     topic: string
     auth_method: AuthorizationMethods
-    auth_creds?: Object
+    auth_creds: IAuthorizationData[AuthorizationMethods]
 }
