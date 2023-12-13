@@ -1,5 +1,8 @@
 <h1>Pulsar Topic Viewer (PTV)</h1>
-Connect to your Apache Pulsar cluster and analyze your topic statistics.
+
+![Dashboard (In Development)](_docs/assets/dashboard_dev.png)
+
+Connect to your Apache Pulsar cluster and analyze your topic statistics while connected.
 
 
 

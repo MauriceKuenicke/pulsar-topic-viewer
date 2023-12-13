@@ -46,9 +46,9 @@
     </v-row>
 
 
-    <div class="mt-5">
-      {{topicData}}
-    </div>
+<!--    <div class="mt-5">-->
+<!--      {{topicData}}-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -103,14 +103,13 @@ const config = ref({
   },
   stroke: {
     width: [1, 3],
-    curve: 'smooth',
     dashArray: [2, 0]
   },
   title: {
     text: 'Current Message Rate IN',
   },
   legend: {
-    show: false,
+    show: true,
   },
   noData: {
     text: 'Loading...'
@@ -157,15 +156,16 @@ const configOut = ref({
   },
   stroke: {
     width: [1, 3],
-    curve: 'smooth',
+    // curve: 'smooth',
     dashArray: [2, 0]
   },
   title: {
     text: 'Current Message Rate OUT',
   },
   legend: {
-    show: false,
+    show: true,
   },
+  colors: ["#eb7434", "#2da645"],
   noData: {
     text: 'Loading...'
   },
