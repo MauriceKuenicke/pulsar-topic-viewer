@@ -6,7 +6,7 @@ development_password = "admin"
 
 client = pulsar.Client(service_url='pulsar://localhost:6650',
                        authentication=AuthenticationBasic(development_user, development_password))
-consumer = client.subscribe(topic='my-topic-test-2', subscription_name='my-sub')
+consumer = client.subscribe(topic='my-topic-test-2', subscription_name='my-other-sub')
 
 while True:
     msg = consumer.receive()
