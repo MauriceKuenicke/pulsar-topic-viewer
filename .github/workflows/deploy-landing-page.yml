@@ -34,8 +34,8 @@ jobs:
       - name: Compile scss
         uses: gha-utilities/sass-build@v0.5.1
         with:
-          source: landing/scss/assets/scss/main.scss
-          destination: landing/css/assets/css/main.css
+          source: /landing/scss/assets/scss/main.scss
+          destination: /landing/css/assets/css/main.css
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
