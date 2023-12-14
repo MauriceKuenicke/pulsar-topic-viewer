@@ -2,24 +2,31 @@
 
 ![Dashboard (In Development)](_docs/assets/dashboard_dev.png)
 
-Connect to your Apache Pulsar cluster and analyze your topic statistics while connected.
+<p align="center">
+    <em>Connect to your Apache Pulsar cluster and analyze your topic statistics while connected.</em>
+</p>
 
-
+<p align="center">
+    <a href="https://github.com/MauriceKuenicke/pulsar-topic-viewer/actions/workflows/deploy-landing-page.yml?query=branch%3Amain" target="_blank">
+        <img src="https://github.com/MauriceKuenicke/pulsar-topic-viewer/actions/workflows/deploy-landing-page.yml/badge.svg?branch=main" alt="Website Badge">
+    </a>
+</p>
 
 ---
 **Website**: <a href="https://mauricekuenicke.github.io/pulsar-topic-viewer/" target="_blank">https://mauricekuenicke.github.io/pulsar-topic-viewer/</a>
+
 **Source Code**: <a href="https://github.com/MauriceKuenicke/pulsar-topic-viewer" target="_blank">https://github.com/MauriceKuenicke/pulsar-topic-viewer</a>
 
 ---
 
-![Select Connection Screen](_docs/assets/select_connection.png)
-<p align="center">
-    <em>Store and manage your topic connections</em>
-</p>
-
 ![Select Connection Screen](_docs/assets/create_new_connection.png)
 <p align="center">
     <em>Create and test new connections</em>
+</p>
+
+![Select Connection Screen](_docs/assets/select_connection.png)
+<p align="center">
+    <em>Store and manage your topic connections</em>
 </p>
 
 # Development
