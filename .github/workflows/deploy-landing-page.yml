@@ -1,9 +1,10 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy PTV Landing Page
+name: Website
 
 on:
   # Runs on pushes targeting the default branch
   push:
+    paths: ['landing/**']
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
