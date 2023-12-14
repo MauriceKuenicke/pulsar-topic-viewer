@@ -41,3 +41,9 @@ Just copy this path into your file explorer. You can adjust the credentials if n
 providing a different `.htpasswd` file. Make sure to also adjust the credentials in the config file
 to let the proxy connect to the broker correctly.
 
+
+## Create Release
+```
+git tag <tag_name>
+git push origin --tags
+```
