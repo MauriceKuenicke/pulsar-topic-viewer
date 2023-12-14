@@ -1,9 +1,58 @@
-$font-stack: Helvetica, sans-serif;
+$font-family: 'Roboto', sans-serif;
 $primary-color: #333;
 $background-color: #f4f6f9;
+$header-height: 0px;
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;
+
+:root{
+  --biggest-font-size: 3.5rem;
+  --bigger-font-size: 2.25rem;
+  --big-font-size: 1.625rem;
+  --normal-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  @media screen and (min-width: 768px){
+    --biggest-font-size: 6rem;
+    --bigger-font-size: 4.5rem;
+    --big-font-size: 2.5rem;
+    --normal-font-size: 2rem;
+    --smaller-font-size: 0.938rem;
+  }
+}
+
+
+/*----- SANE DEFAULTS -----*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
 
 body {
-  font: 100% $font-stack;
+  margin: 0 0 0 0;
+  font: 100% $font-family;
   color: $primary-color;
-  background: $background-color
+  background-color: $background-color
 }
+
+h1,h2,h3,p{
+  margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+

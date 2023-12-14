@@ -1,0 +1,132 @@
+.home{
+  position: relative;
+  width: 85%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin: auto;
+
+  h1{
+    font-size: 5rem;
+    animation: fadeInFromLeft 0.8s ease-in both;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 2rem;
+    animation: fadeInFromLeft 0.8s ease-in both;
+  }
+
+  a {
+    background: #25136b;
+    padding: 15px;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.7rem;
+    animation: fadeInFromLeft 0.4s ease-in both;
+    animation-delay: 1s;
+  }
+
+  .image__box {
+    position: relative;
+    height: 100%;
+
+    #image1 {
+      border-radius: 1rem;
+      position: absolute;
+      height: 400px;
+      top: 20%;
+      opacity: 0.9;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+      animation: fadeInFromBottom 0.8s ease-in both;
+    }
+
+    #image2 {
+      position: absolute;
+      border-radius: 1rem;
+      height: 300px;
+      right: -80px;
+      top: 40%;
+      opacity: 1;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+      animation: fadeInFromBottom 0.8s ease-in both;
+      animation-delay: 0.2s;
+    }
+  }
+}
+
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-4%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 1750px){
+  .home{
+    grid-template-columns: repeat(1, 1fr);
+
+    .image__box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+    }
+  }
+
+  #image1 {
+    position: relative !important;
+    top: 0 !important;
+    height: 350px !important;
+  }
+
+  #image2 {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1250px){
+  #image1 {
+    display: none !important;
+  }
+
+  #image2 {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .home{
+    h1{
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    a{
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+}

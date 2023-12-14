@@ -8,6 +8,6 @@ npm install -g sass
 
 From the root directory, run
 ```sh
-sass --watch landing/scss:landing/css 
+sass --watch landing/assets/scss:landing/assets/css
 ```
 to automatically compile the scss files during development.
