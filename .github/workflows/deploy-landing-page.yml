@@ -31,6 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Compile scss
+        uses: gha-utilities/sass-build@v0.5.1
+        with:
+          source: landing/scss
+          destination: landing/css
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
