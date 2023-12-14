@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "Bell Pulsar Topic Viewer",
+    "productName": "Pulsar Topic Viewer",
     "version": "0.0.1"
   },
   "tauri": {
@@ -30,7 +30,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "Bell-PTV",
+      "identifier": "PTV",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -46,7 +46,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "Bell PTV 0.0.1",
+        "title": "PTV 0.0.1",
         "width": 1300,
         "height": 700,
         "minHeight": 600,

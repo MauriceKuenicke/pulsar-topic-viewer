@@ -238,11 +238,16 @@ function loadTopicData(){
     timestampArray.value.push(loadTimestamp)
 
     let oldMessageCount = messageInCounter.value
+    // @ts-ignore
     const currentMessageCount = data["msgInCounter"] as number
-    messageOutCounter.value = data["msgOutCounter"]
-    bytesInCounter.value = data["bytesInCounter"]
-    bytesOutCounter.value = data["bytesOutCounter"]
-    backlogSize.value = data["backlogSize"]
+    // @ts-ignore
+    messageOutCounter.value = data["msgOutCounter"] as number
+    // @ts-ignore
+    bytesInCounter.value = data["bytesInCounter"] as number
+    // @ts-ignore
+    bytesOutCounter.value = data["bytesOutCounter"] as number
+    // @ts-ignore
+    backlogSize.value = data["backlogSize"] as number
 
     if (!oldMessageCount) {
       oldMessageCount = currentMessageCount
